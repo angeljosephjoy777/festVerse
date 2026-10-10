@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign up — FestVerse 2026</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="aurora"><i></i><i></i><i></i></div><div class="grid-bg"></div><div class="cursor-glow"></div>
+<div id="loader"><div class="orbit"><span></span><span></span><span></span></div></div>
+
+<nav class="nav-fx glass"><a class="brand" href="index.html"><span class="logo">✦</span>FestVerse</a>
+  <div class="nav-links"><a class="l" href="index.html"><i class="bi bi-arrow-left"></i> Home</a></div></nav>
+
+<div class="auth-wrap">
+  <div class="auth-art">
+    <div class="orb"></div>
+    <span class="chip mb-3" style="width:fit-content">Student registration</span>
+    <h2>Join the <span class="grad-text">fest.</span></h2>
+    <p class="muted fs-5 mt-3" style="max-width:420px">Create your account once, register for as many events as you like.</p>
+    <ul class="list-unstyled muted mt-3">
+      <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>One account per email</li>
+      <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>One account per roll number</li>
+      <li><i class="bi bi-check2-circle text-info me-2"></i>Instant digital tickets</li>
+    </ul>
+  </div>
+  <div class="auth-form">
+    <div class="auth-card glass reveal" style="width:min(560px,100%)">
+      <h3 class="mb-1">Create account</h3>
+      <p class="muted mb-4">It takes less than a minute.</p>
+      <div id="msg" class="alert-fx"></div>
+      <form id="f" novalidate>
+        <div class="row g-x-2">
+          <div class="col-12"><div class="field"><label for="name">Full name</label><input id="name" class="form-control" placeholder="e.g. Angel Joseph" autocomplete="name"><div class="fb"></div></div></div>
+          <div class="col-12"><div class="field"><label for="email">College email</label><input id="email" type="email" class="form-control" placeholder="you@college.edu" autocomplete="email"><div class="fb"></div></div></div>
+          <div class="col-md-6"><div class="field"><label for="roll">Roll number</label><input id="roll" class="form-control text-uppercase" placeholder="e.g. 22B91A0501" maxlength="15" autocomplete="off"><div class="fb"></div></div></div>
+          <div class="col-md-6"><div class="field"><label for="phone">Mobile number</label><input id="phone" type="tel" inputmode="numeric" maxlength="10" class="form-control" placeholder="10-digit number" autocomplete="tel"><div class="fb"></div></div></div>
+          <div class="col-md-6"><div class="field"><label for="branch">Branch</label><select id="branch" class="form-select"><option value="">Select branch</option></select><div class="fb"></div></div></div>
+          <div class="col-md-6"><div class="field"><label for="year">Year</label>
+            <select id="year" class="form-select"><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option></select><div class="fb"></div></div></div>
+          <div class="col-md-6"><div class="field"><label for="pw">Password</label><input id="pw" type="password" class="form-control" placeholder="Min 8 characters" autocomplete="new-password">
+            <button type="button" class="eye" data-target="pw"><i class="bi bi-eye"></i></button><div class="pw-meter"><i></i><i></i><i></i><i></i></div><div class="fb"></div></div></div>
+          <div class="col-md-6"><div class="field"><label for="pw2">Confirm password</label><input id="pw2" type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password">
+            <button type="button" class="eye" data-target="pw2"><i class="bi bi-eye"></i></button><div class="fb"></div></div></div>
+        </div>
+        <button class="btn-fx w-100 mt-2" id="go" type="submit">Create account</button>
+      </form>
+      <p class="muted text-center mt-4 mb-0">Already registered? <a href="login.html" class="grad-text fw-semibold">Login</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="js/signup.js"></script>
+</body>
+</html>

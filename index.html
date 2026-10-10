@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FestVerse 2026 — Campus Fest Event Management</title>
+<meta name="description" content="Discover and register for every event at FestVerse 2026.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="aurora"><i></i><i></i><i></i></div><div class="grid-bg"></div><div class="cursor-glow"></div>
+<div id="loader"><div class="orbit"><span></span><span></span><span></span></div></div>
+
+<nav class="nav-fx glass">
+  <a class="brand" href="index.html"><span class="logo">✦</span>FestVerse</a>
+  <div class="nav-links">
+    <a class="l" href="#events">Events</a>
+    <a class="l" href="#how">How it works</a>
+    <span id="navAuth" class="d-flex gap-2">
+      <a class="btn-ghost btn-sm-ghost" href="login.html">Login</a>
+      <a class="btn-fx" style="padding:.45rem 1rem" href="signup.html">Sign up</a>
+    </span>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="shape ring" style="right:6%;top:150px"></span>
+  <span class="shape cube" style="left:5%;top:340px"></span>
+  <span class="shape cube" style="right:18%;top:520px;width:44px;height:44px;animation-delay:-2s;background:linear-gradient(135deg,var(--pk),var(--am))"></span>
+  <div class="container">
+    <span class="pill glass reveal"><b></b> Registrations are open · FestVerse 2026</span>
+    <h1>
+      <span class="word" style="animation-delay:.1s">Where</span>
+      <span class="word" style="animation-delay:.22s">campus</span><br>
+      <span class="word grad-text" style="animation-delay:.34s">comes</span>
+      <span class="word grad-text" style="animation-delay:.46s">alive.</span>
+    </h1>
+    <p class="muted fs-5 mt-4 reveal d1" style="max-width:560px">One place to discover every competition, workshop and show — and grab your spot in a few taps.</p>
+    <div class="d-flex flex-wrap gap-3 mt-4 reveal d2">
+      <a href="signup.html" class="btn-fx fs-6">Register now <i class="bi bi-arrow-right ms-1"></i></a>
+      <a href="#events" class="btn-ghost fs-6">Browse events</a>
+    </div>
+    <div class="stat-strip">
+      <div class="glass reveal"><h3 class="grad-text" id="sEvents">0</h3><span class="muted">Events</span></div>
+      <div class="glass reveal d1"><h3 class="grad-text" id="sSeats">0</h3><span class="muted">Seats open</span></div>
+      <div class="glass reveal d2"><h3 class="grad-text" id="sCats">0</h3><span class="muted">Categories</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div class="track" id="marq"></div></div>
+
+<section class="block" id="events">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+      <div><span class="chip mb-2">Upcoming</span><h2 class="sec-title m-0">Pick your <span class="grad-text">vibe</span></h2></div>
+      <a href="login.html" class="btn-ghost">Login to register</a>
+    </div>
+    <div class="row g-4" id="evGrid"></div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="container">
+    <h2 class="sec-title text-center mb-5 reveal">Three steps. <span class="grad-text">Zero queues.</span></h2>
+    <div class="row g-4">
+      <div class="col-md-4 reveal"><div class="glass step"><span class="n">01</span><i class="bi bi-person-plus"></i><h5>Create your account</h5><p class="muted m-0">Sign up with your college email and roll number. Each email and roll number can only be used once.</p></div></div>
+      <div class="col-md-4 reveal d1"><div class="glass step"><span class="n">02</span><i class="bi bi-compass"></i><h5>Explore events</h5><p class="muted m-0">Search and filter by category, see live seat availability, dates and venues.</p></div></div>
+      <div class="col-md-4 reveal d2"><div class="glass step"><span class="n">03</span><i class="bi bi-ticket-perforated"></i><h5>Grab your ticket</h5><p class="muted m-0">Register in one tap. Your tickets live in your dashboard — cancel anytime before the event.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block pt-0">
+  <div class="container"><div class="cta-band reveal">
+    <h2 class="sec-title">Ready to be part of it?</h2>
+    <p class="muted mb-4">Seats are limited and they go fast.</p>
+    <a href="signup.html" class="btn-fx fs-6">Create free account</a>
+  </div></div>
+</section>
+
+<footer class="f"><div class="container d-flex flex-wrap justify-content-between gap-2">
+  <span>© 2026 FestVerse</span><a class="muted" href="login.html?role=admin"><i class="bi bi-shield-lock"></i> Admin login</a>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="js/landing.js"></script>
+</body>
+</html>

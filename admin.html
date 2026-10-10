@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Dashboard — FestVerse</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="aurora"><i></i><i></i><i></i></div><div class="grid-bg"></div><div class="cursor-glow"></div>
+<div id="loader"><div class="orbit"><span></span><span></span><span></span></div></div>
+
+<div class="dash">
+  <aside class="side">
+    <a class="brand" href="index.html"><span class="logo">✦</span>FestVerse</a>
+    <a class="nv on" data-s="overview"><i class="bi bi-speedometer2"></i><span>Overview</span></a>
+    <a class="nv" data-s="events"><i class="bi bi-calendar-event"></i><span>Events</span></a>
+    <a class="nv" data-s="students"><i class="bi bi-people"></i><span>Students</span></a>
+    <a class="nv" data-s="regs"><i class="bi bi-ticket-perforated"></i><span>Registrations</span></a>
+    <a class="nv" id="logout" role="button"><i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
+    <div class="me glass"><div class="avatar" id="av">A</div><div class="overflow-hidden"><div class="fw-semibold text-truncate" id="meName">Admin</div><small class="muted">Administrator</small></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="mobile-top"><a class="brand" href="index.html"><span class="logo">✦</span>FestVerse</a><span class="chip">Admin</span></div>
+
+    <!-- OVERVIEW -->
+    <section class="sec on" id="sec-overview">
+      <div class="page-head"><div><h2>Fest <span class="grad-text">analytics</span></h2><span class="muted">Live numbers, updated in real time.</span></div></div>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-xl-3"><div class="glass kpi" style="--k:var(--p)"><div class="ic"><i class="bi bi-people"></i></div><h3 id="kStu">0</h3><small class="muted">Students</small></div></div>
+        <div class="col-6 col-xl-3"><div class="glass kpi" style="--k:var(--pk)"><div class="ic"><i class="bi bi-calendar-event"></i></div><h3 id="kEv">0</h3><small class="muted">Events</small></div></div>
+        <div class="col-6 col-xl-3"><div class="glass kpi" style="--k:var(--am)"><div class="ic"><i class="bi bi-ticket-perforated"></i></div><h3 id="kReg">0</h3><small class="muted">Registrations</small></div></div>
+        <div class="col-6 col-xl-3"><div class="glass kpi" style="--k:var(--tl)"><div class="ic"><i class="bi bi-pie-chart"></i></div><h3><span id="kFill">0</span>%</h3><small class="muted">Seats filled</small></div></div>
+      </div>
+      <div class="row g-3">
+        <div class="col-lg-7"><div class="glass chart-box"><h6 class="mb-3">Registrations per event</h6><canvas id="cEvents"></canvas></div></div>
+        <div class="col-lg-5"><div class="glass chart-box"><h6 class="mb-3">Students by branch</h6><canvas id="cBranch"></canvas></div></div>
+        <div class="col-lg-7"><div class="glass chart-box"><h6 class="mb-3">Registrations — last 7 days</h6><canvas id="cDays"></canvas></div></div>
+        <div class="col-lg-5"><div class="glass chart-box"><h6 class="mb-3">Latest registrations</h6><div id="recent"></div></div></div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="sec" id="sec-events">
+      <div class="page-head"><h2>Manage <span class="grad-text">events</span></h2>
+        <div class="d-flex gap-2 flex-wrap"><button class="btn-ghost" id="seed"><i class="bi bi-magic"></i> Add sample events</button><button class="btn-fx" id="addEv"><i class="bi bi-plus-lg"></i> New event</button></div></div>
+      <div class="glass tbl-wrap"><table class="tbl"><thead><tr><th>Event</th><th>Category</th><th>When</th><th>Venue</th><th>Seats</th><th></th></tr></thead><tbody id="evBody"></tbody></table></div>
+    </section>
+
+    <!-- STUDENTS -->
+    <section class="sec" id="sec-students">
+      <div class="page-head"><h2>Manage <span class="grad-text">students</span></h2>
+        <div class="d-flex gap-2 flex-wrap"><div class="search"><i class="bi bi-search"></i><input id="sq" class="form-control" placeholder="Search name, roll, email"></div>
+          <select id="sb" class="form-select" style="width:auto"><option value="">All branches</option></select></div></div>
+      <div class="glass tbl-wrap"><table class="tbl"><thead><tr><th>Student</th><th>Roll no.</th><th>Branch</th><th>Year</th><th>Phone</th><th>Events</th><th></th></tr></thead><tbody id="stBody"></tbody></table></div>
+    </section>
+
+    <!-- REGISTRATIONS -->
+    <section class="sec" id="sec-regs">
+      <div class="page-head"><h2>All <span class="grad-text">registrations</span></h2>
+        <div class="d-flex gap-2 flex-wrap"><div class="search"><i class="bi bi-search"></i><input id="rq" class="form-control" placeholder="Search student or roll"></div>
+          <select id="rf" class="form-select" style="width:auto"><option value="">All events</option></select>
+          <button class="btn-ghost" id="csv"><i class="bi bi-download"></i> Export CSV</button></div></div>
+      <div class="glass tbl-wrap"><table class="tbl"><thead><tr><th>Ticket</th><th>Student</th><th>Roll no.</th><th>Branch</th><th>Event</th><th>Registered</th><th></th></tr></thead><tbody id="rgBody"></tbody></table></div>
+    </section>
+  </main>
+</div>
+
+<!-- Event modal -->
+<div class="modal fade" id="evModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content">
+  <div class="modal-header"><h5 class="modal-title" id="evModalTitle">New event</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+  <form id="evForm" novalidate><div class="modal-body"><div class="row g-x-2">
+    <div class="col-md-8"><div class="field"><label for="eTitle">Title</label><input id="eTitle" class="form-control" maxlength="80"><div class="fb"></div></div></div>
+    <div class="col-md-4"><div class="field"><label for="eCat">Category</label><select id="eCat" class="form-select"></select><div class="fb"></div></div></div>
+    <div class="col-12"><div class="field"><label for="eDesc">Description</label><textarea id="eDesc" rows="3" class="form-control" maxlength="400"></textarea><div class="fb"></div></div></div>
+    <div class="col-md-5"><div class="field"><label for="eDate">Date & time</label><input id="eDate" type="datetime-local" class="form-control"><div class="fb"></div></div></div>
+    <div class="col-md-4"><div class="field"><label for="eVenue">Venue</label><input id="eVenue" class="form-control" maxlength="60"><div class="fb"></div></div></div>
+    <div class="col-md-3"><div class="field"><label for="eCap">Capacity</label><input id="eCap" type="number" min="1" max="5000" class="form-control"><div class="fb"></div></div></div>
+  </div></div>
+  <div class="modal-footer"><button type="button" class="btn-ghost" data-bs-dismiss="modal">Cancel</button><button class="btn-fx" id="eSave" type="submit">Save event</button></div></form>
+</div></div></div>
+
+<!-- Confirm modal -->
+<div class="modal fade" id="cfModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+  <div class="modal-body p-4 text-center"><i class="bi bi-exclamation-triangle" style="font-size:2.6rem;color:var(--am)"></i>
+    <h5 class="mt-2" id="cfTitle"></h5><p class="muted" id="cfText"></p>
+    <div class="d-flex gap-2 justify-content-center"><button class="btn-ghost" data-bs-dismiss="modal">Cancel</button><button class="btn-fx" id="cfOk" style="background:#e5484d">Delete</button></div></div>
+</div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
